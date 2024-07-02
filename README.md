@@ -12,5 +12,7 @@ Task2.docx,
 Task3.docx,
 Task4.docx.
 
+Note: Please comment CREATE DATABASE line while running the query!
+
 Thanks,
 Parkavi Rengaraj.
