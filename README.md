@@ -7,10 +7,10 @@ Task_2.sql,
 Task_3.sql,
 Task_4.sql
 Along with screenshot files named below,
-Task1.docx,
-Task2.docx,
-Task3.docx,
-Task4.docx.
+Task1_Screenshots.docx,
+Task2_Screenshots.docx,
+Task3_Screenshots.docx,
+Task4_Screenshots.docx.
 
 Note: Please comment CREATE DATABASE line while running the query!
 
