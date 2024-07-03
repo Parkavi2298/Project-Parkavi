@@ -88,7 +88,7 @@ WHERE course_id IN ('2203','2205','2201');
 -----------------------------------------------------------------------------------------------------------------------------------------
 --4.Reporting and Analytics 
 
---4.a
+--a
 SELECT COUNT(*) AS count, course_name 
 FROM EnrollmentInfo eio 
 JOIN CourseInfo cio 
@@ -96,14 +96,15 @@ ON eio.course_id = cio.course_id
 WHERE eio.enroll_status <> 'Not Enrolled' 
 GROUP BY course_name;
 
---4.b
+--b
 SELECT sti.stu_name, coi.course_name, eni.enroll_status 
 FROM StudentInfo sti, CourseInfo coi, EnrollmentInfo eni 
 WHERE sti.stu_id = eni.stu_id 
+AND eni.enroll_status <> 'Not Enrolled'
 AND eni.course_id = coi.course_id  
 AND coi.course_id = 2204;
 
---4.c
+--c
 SELECT COUNT(*) AS count, course_instructor_name 
 FROM EnrollmentInfo eio 
 JOIN CourseInfo cio 
@@ -111,19 +112,21 @@ ON eio.course_id = cio.course_id
 WHERE eio.enroll_status <> 'Not Enrolled' 
 GROUP BY course_instructor_name;
 
---4.d
+--d
 SELECT sio.stu_name, COUNT(eio.course_id) AS count 
 FROM StudentInfo sio 
 JOIN EnrollmentInfo eio 
 ON sio.stu_id = eio.stu_id 
+WHERE eio.enroll_status <> 'Not Enrolled' 
 GROUP BY sio.stu_name 
 HAVING COUNT(*) > 1;
 
---4.e
+--e
 SELECT cio.course_name, COUNT(eio.course_id) AS count 
 FROM CourseInfo cio 
 JOIN EnrollmentInfo eio 
 ON  eio.course_id = cio.course_id 
+WHERE eio.enroll_status <> 'Not Enrolled' 
 GROUP BY cio.course_name 
 ORDER BY COUNT DESC;
------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
