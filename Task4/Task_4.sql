@@ -31,15 +31,15 @@ GROUP BY Region, Product_Id
 ORDER BY Region, Product_Id;
 
 --3.b
-SELECT Product_Id, Region, SUM(Sales_Amount) AS Total_sales 
-FROM sales_sample 
-GROUP BY Product_Id, Region 
-ORDER BY Product_Id, Region;
-
---3.c
 SELECT s.Product_Id, s.Region, s.Date, SUM(s.Sales_Amount) AS Total_sales 
 FROM Sales_sample s
 GROUP BY ROLLUP(s.Region,s.Product_Id,s.Date);
+
+--3.c
+SELECT Product_Id, Region, Date, SUM(Sales_Amount) AS Total_sales 
+FROM sales_sample 
+GROUP BY Product_Id, Region, Date 
+ORDER BY Product_Id, Region, Date;
 
 --3.d
 SELECT * 
